@@ -12,19 +12,6 @@ router.get("/get", (req,res)=>{
     });
 });
 
-//patch
-router.patch('/patch/:id', (req,res)=>{
-    const id = req.params.id;
-    res.status(200).json({
-        message: "Using Get",
-        id: id,
-        metadata: {
-            hostname: req.hostname,
-            method: req.method,
-        },
-    });
-});
-
 // get by id
 router.get("/get/:id", (req,res)=>{
     const id = req.params.id;
@@ -37,6 +24,33 @@ router.get("/get/:id", (req,res)=>{
         },
     });
 });
+
+//patch
+router.get("/patch/:id", (req,res)=>{
+    const id = req.params.id;
+    res.status(200).json({
+        message: "Using patch",
+        id: id,
+        metadata: {
+            hostname: req.hostname,
+            method: req.method,
+        },
+    });
+});
+// post
+router.get("/post", (req,res)=>{
+    res.status(200).json({
+        message: "Using Post status 201",
+    });
+});
+// delete
+router.get("/delete/:id", (req,res)=>{
+    const id = req.params.id;
+    res.status(200).json({
+        message: `deleted user ${id}`,
+    });
+});
+
 module.exports = router;
 
 
